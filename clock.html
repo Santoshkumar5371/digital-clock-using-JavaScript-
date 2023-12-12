@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+    <style>
+
+        footer {
+  /* background-color: #777; */
+  padding: 600px;
+  text-align: left;
+  color: white;
+  /* height: 100px; */
+}
+         #display {
+            font-size: 140px;
+            width: 900px;
+            color:blue;
+        } 
+       body{
+            display: grid;
+            height: 100%;
+            place-items: center;
+            background:black;
+        } 
+            .wrapper{
+              height: 300px;
+              width: 80%;
+              background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+              border-radius: 10px;
+              animation: animate 3.2s linear infinite;
+              
+        }
+            .display,
+            .wrapper {
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+
+            
+        }
+            .wrapper .display{
+              height: 200px;
+              width: 500px;
+              background: #7362be;
+              border-radius: 6px;
+              text-align: center;
+
+              
+        }       
+    @keyframes animate {
+          100%{
+            filter: hue-rotate(360deg);
+            }
+            }   
+    </style>
+</head>
+<body>
+    <div id="clock">
+    <div class="wrapper" style="text-align: center;">  
+<marquee direction="right" style="color:blue; font-size:30px";> Hello, This is Santosh Kumar </marquee>
+        <div id="display" class="display"> 
+        </div>
+        </div> 
+    </div>
+    <script>
+        setInterval(showTime);
+        function showTime() {
+            let time = new Date();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let sec = time.getSeconds(); 
+            am_pm = "AM";
+
+            if (hour > 12) {
+                hour -= 12;
+                am_pm = "PM";
+            }
+            if (hour == 0) {
+                hr = 12;
+                am_pm = "AM";
+            }
+
+            hour = hour < 10 ? "0" + hour : hour;
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+
+            let currentTime = hour + ":"
+                + min + ":" + sec + am_pm;
+
+            document.getElementById("display")
+                .innerHTML = currentTime;
+        }
+        //  document.write("santosh kumar")
+        showTime()
+        //  document.write("santosh kumar")
+    </script> 
+    <!-- <marquee direction="right" style="color:blue; font-size:30px";> Hello, This is Santosh Kumar </marquee> -->
+    <h1 style="color: rgb(255, 140, 0); font-size: 40px";>Digital Clock</h1>
+    <footer style="color: rgb(182, 182, 235); font-size: 10px ";>
+        <h2>santosh kumar &copy;</h2>
+    </footer>
+</body>
+
+</html>
